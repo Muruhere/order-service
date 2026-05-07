@@ -22,7 +22,7 @@ public class TraderAccountService {
 	 * safely enforce per-trader rules (pending cap, etc.) within the same transaction.
 	 */
 	@Transactional
-	public Trader lockTraderAccount(String traderId) {
+	public void lockTraderAccount(String traderId) {
 		traderRepository.findById(traderId).orElseGet(() -> {
 			try {
 				return traderRepository.save(new Trader(traderId, Instant.now()));
@@ -30,6 +30,6 @@ public class TraderAccountService {
 				return traderRepository.findById(traderId).orElseThrow(() -> ex);
 			}
 		});
-		return traderRepository.findByIdForUpdate(traderId).orElseThrow();
+		traderRepository.findByIdForUpdate(traderId).orElseThrow();
 	}
 }

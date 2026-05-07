@@ -1,4 +1,4 @@
-# Macro specification: Order booking & portfolio (trading desk)
+# SDD: Order booking & portfolio
 
 **Purpose:** Single reference for *what* the feature does and *why* it is shaped this way—useful when walking an interviewer through scope, tradeoffs, and correctness.
 
