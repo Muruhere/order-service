@@ -1,16 +1,12 @@
 # Order Service (trading desk take-home)
 
-Spring Boot 3.5 service for placing/filling/cancelling orders, maintaining portfolios, and computing fixed-basket sector overlap in pure Java.
+This is an order-service which does placing/filling/cancelling orders, maintaining portfolios.
 
 ## Run
 
 - **JDK:** 21  
-- **Database:** MySQL 8 (create an empty schema; Liquibase applies DDL on startup)  
-- **Environment (optional defaults in `application.yaml`):**
-
-  - `DATASOURCE_URL` (default `jdbc:mysql://localhost:3306/orderdb?createDatabaseIfNotExist=true&characterEncoding=utf8`)
-  - `DATASOURCE_USERNAME` (default `root`)
-  - `DATASOURCE_PASSWORD` (default empty)
+- **Database:** MySQL 8
+- **Spring boot:** 3.5
 
 ```bash
 ./gradlew bootRun
@@ -35,7 +31,6 @@ Tests use **H2** in MySQL compatibility mode with **Liquibase disabled** and `sp
 | Sector overlap | `GET /portfolios/{traderId}/sector-overlap` |
 | Add to portfolio | `POST /portfolios/{traderId}/positions` |
 
-JSON uses string tickers and sectors (`traderId`, `stock`, `sector`, `quantity`, `side` as `BUY` or `SELL`). Errors return `400` / `404` with body `{"error":"..."}`.
 
 ## Key decisions
 
