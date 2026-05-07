@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-initial-schema
+      author: order-service
+      changes:
+        - sqlFile:
+            path: ../../schema.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: false
+            endDelimiter: ;

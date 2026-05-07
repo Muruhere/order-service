@@ -1,0 +1,15 @@
+# Tests: H2 in MySQL mode + Hibernate schema (Liquibase disabled to avoid MySQL-only DDL drift).
+spring:
+  datasource:
+    url: jdbc:h2:mem:order_test;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  liquibase:
+    enabled: false
