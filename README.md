@@ -1,4 +1,4 @@
-# Order Service (trading desk take-home)
+# Order Service
 
 This is an order-service which does placing/filling/cancelling orders, maintaining portfolios. 
 It is developed using Spec driven Development using macro spec [`openspec/macro-spec.md`](openspec/macro-spec.md) with Cursor Plan mode 
