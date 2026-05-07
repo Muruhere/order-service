@@ -1,6 +1,8 @@
 # Order Service (trading desk take-home)
 
-This is an order-service which does placing/filling/cancelling orders, maintaining portfolios.
+This is an order-service which does placing/filling/cancelling orders, maintaining portfolios. 
+It is developed in spec-driven deployment using macro spec [`openspec/macro-spec.md`](openspec/macro-spec.md) with Cursor Plan mode 
+fine tuned the specs before development. More details about spec-driven development [here](https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html)
 
 ## Run
 
@@ -42,5 +44,5 @@ Tests use **H2** in MySQL compatibility mode with **Liquibase disabled** and `sp
 
 ## Intentional skips / deferrals
 
-- Authentication, idempotency keys, pagination, and audit history.
+- Authentication, pagination, and audit history.
 - **Testcontainers MySQL** for integration tests (timeboxed; unit tests cover rules and overlap math on H2).
