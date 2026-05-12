@@ -71,7 +71,7 @@ class OrderServiceTest {
 	@Test
 	void cancel_onlyWhenPending() {
 		String trader = "t-cancel";
-		long id = orderService.placeOrder(buy(trader, "CSCO", "TECH", 1)).id();
+		long id = orderService.placeOrder(buy(trader, "AAPL", "TECH", 1)).id();
 		orderService.fillOrder(id);
 		assertThatThrownBy(() -> orderService.cancelOrder(id))
 				.isInstanceOf(TradingException.class)
@@ -81,7 +81,7 @@ class OrderServiceTest {
 	@Test
 	void cancel_setsCancelled() {
 		String trader = "t-cancel-ok";
-		long id = orderService.placeOrder(buy(trader, "IBM", "TECH", 2)).id();
+		long id = orderService.placeOrder(buy(trader, "GOOGL", "TECH", 2)).id();
 		orderService.cancelOrder(id);
 		assertThat(orderRepository.findById(id)).isPresent().get().extracting(o -> o.getStatus())
 				.isEqualTo(OrderStatus.CANCELLED);
