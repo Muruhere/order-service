@@ -1,6 +1,7 @@
 package com.fynxt.orderservice.api.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
 
@@ -9,8 +10,8 @@ public class PlaceOrderRequest {
 	@NotBlank
 	private String traderId;
 
-	@NotBlank
-	private String stock;
+	@NotNull(message = "Stock cannot be blank")
+	private Stock stock;
 
 	@NotBlank
 	private String sector;
@@ -31,10 +32,10 @@ public class PlaceOrderRequest {
 	}
 
 	public String getStock() {
-		return stock;
+		return stock.name();
 	}
 
-	public void setStock(String stock) {
+	public void setStock(Stock stock) {
 		this.stock = stock;
 	}
 

@@ -1,6 +1,7 @@
 package com.fynxt.orderservice.service;
 
 import com.fynxt.orderservice.api.dto.PlaceOrderRequest;
+import com.fynxt.orderservice.api.dto.Stock;
 import com.fynxt.orderservice.api.error.TradingException;
 import com.fynxt.orderservice.domain.OrderStatus;
 import com.fynxt.orderservice.repository.OrderRepository;
@@ -89,7 +90,7 @@ class OrderServiceTest {
 	private static PlaceOrderRequest buy(String traderId, String stock, String sector, int qty) {
 		PlaceOrderRequest r = new PlaceOrderRequest();
 		r.setTraderId(traderId);
-		r.setStock(stock);
+		r.setStock(Stock.valueOf(stock));
 		r.setSector(sector);
 		r.setQuantity(qty);
 		r.setSide("BUY");
